@@ -2,6 +2,8 @@
 
 This is a chat application similar to WhatsApp that allows users to send and delete messages. The app is built using React with TypeScript as the framework, Tailwind CSS for styling, and Axios for making API calls.
 
+Live demo : https://chatapp-nine-alpha.vercel.app/
+
 ## Setup
 
 To set up this project locally, follow these steps:

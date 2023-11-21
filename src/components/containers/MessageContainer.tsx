@@ -1,7 +1,8 @@
 import React from "react";
 import { isMobile } from "../../lib/helper";
+import { MessageContainerProps } from "../../lib/types";
 
-const ChatContainer = ({ children }: { children: any }) => {
+const MessageContainer: React.FC<MessageContainerProps> = ({ children }) => {
   return (
     <div
       className={`${
@@ -13,4 +14,4 @@ const ChatContainer = ({ children }: { children: any }) => {
   );
 };
 
-export default ChatContainer;
+export default MessageContainer;

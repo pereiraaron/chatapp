@@ -1,12 +1,13 @@
 import { useEffect, useCallback, useState } from "react";
 import Header from "./components/Header";
-import Chat from "./components/Chat";
-import ChatComposer from "./components/ChatComposer";
-import ChatContainer from "./components/containers/ChatContainer";
-import axios from "axios";
+import Messages from "./components/Messages";
+import MessageComposer from "./components/MessageComposer";
+import MessageContainer from "./components/containers/MessageContainer";
+import { groupedMessages, parseMessages, sendRequest } from "./lib/helper";
+import { MessageType } from "./lib/types";
 
 function App() {
-  const [messages, setMessages] = useState<any>([]);
+  const [messages, setMessages] = useState<MessageType[] | []>([]);
 
   useEffect(() => {
     getMessages();
@@ -14,25 +15,20 @@ function App() {
 
   const getMessages = useCallback(async () => {
     try {
-      const response = await axios.get(
-        "https://mapi.harmoney.dev/api/v1/messages",
-        {
-          headers: { Authorization: "noag2GiqPZO81KS1" },
-        }
-      );
-      setMessages([...response.data]);
+      const response = await sendRequest("/messages", "GET");
+      setMessages(parseMessages(response));
     } catch (error) {
       console.error(error);
     }
   }, []);
 
   return (
-    <div className="h-screen w-full flex items-center justify-center">
-      <ChatContainer>
+    <div className="flex items-center justify-center w-full h-screen">
+      <MessageContainer>
         <Header />
-        <Chat messages={messages} getMessages={getMessages} />
-        <ChatComposer getMessages={getMessages} />
-      </ChatContainer>
+        <Messages messages={messages} getMessages={getMessages} />
+        <MessageComposer getMessages={getMessages} />
+      </MessageContainer>
     </div>
   );
 }

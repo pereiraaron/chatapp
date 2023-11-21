@@ -38,14 +38,18 @@ Create a `.env` file in the root directory of the project and add these variable
    npm start
    ```
 
-Features
--Sending messages: Users can send messages to others.
--Deleting messages: Users can delete their sent messages.
--Other features...
-Technologies Used
--React with TypeScript
--Tailwind CSS
--Axios
+### Features
 
-License
+- Sending messages: Users can send messages to others.
+- Deleting messages: Users can delete their sent messages.
+- Other features...
+
+### Technologies Used
+
+- React with TypeScript
+- Tailwind CSS
+- Axios
+
+### License
+
 This project is licensed under the MIT License.

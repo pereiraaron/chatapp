@@ -42,7 +42,6 @@ Create a `.env` file in the root directory of the project and add these variable
 
 - Sending messages: Users can send messages to others.
 - Deleting messages: Users can delete their sent messages.
-- Other features...
 
 ### Technologies Used
 
